@@ -3,18 +3,7 @@ Base settings to build other settings files upon.
 """
 
 import environ
-
-ROOT_DIR = (
-    environ.Path(__file__) - 3
-)  # (ddpro_website/config/settings/base.py - 3 = ddpro_website/)
-APPS_DIR = ROOT_DIR.path("ddpro_website")
-
-env = environ.Env()
-
-READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
-if READ_DOT_ENV_FILE:
-    # OS environment variables take precedence over variables from .env
-    env.read_env(str(ROOT_DIR.path(".env")))
+from . import env, ROOT_DIR, APPS_DIR
 
 # GENERAL
 # ------------------------------------------------------------------------------
