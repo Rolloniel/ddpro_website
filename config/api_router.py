@@ -1,7 +1,7 @@
 from django.conf import settings
 from rest_framework.routers import DefaultRouter, SimpleRouter
 
-from ddpro_website.users.api.views import UserViewSet
+from ddpro_website.users.api.v1.views import UserViewSet
 
 if settings.DEBUG:
     router = DefaultRouter()
