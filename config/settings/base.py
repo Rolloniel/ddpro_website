@@ -43,7 +43,15 @@ LOCALE_PATHS = [ROOT_DIR.path("locale")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    "default": env.db("DATABASE_URL", default="postgres:///ddpro_website")
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env.str("DATABASE_NAME"),
+        'USER': env.str("DATABASE_USER"),
+        'PASSWORD': env.str("DATABASE_PASSWORD"),
+        'HOST': env.str("DATABASE_HOST"),
+        'PORT': env.str("DATABASE_PORT"),
+        #'CONN_MAX_AGE': 600,
+    }
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
@@ -78,6 +86,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "ddpro_website.users.apps.UsersConfig",
+    "ddpro_website.base_ui.apps.BaseUiConfig",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
