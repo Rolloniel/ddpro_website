@@ -50,7 +50,7 @@ Test coverage
 To run the tests, check your test coverage, and generate an HTML coverage report::
 
     $ coverage run -m pytest
-    $ coverage html
+    $ coverage html --omit="*/lib/python3.6/*","*/migrations/*"
     $ open htmlcov/index.html
 
 Running tests with py.test
