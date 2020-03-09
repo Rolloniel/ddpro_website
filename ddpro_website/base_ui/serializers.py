@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from .models import Article
+from .models import About, TeamMember, Product
 
 
 class AboutSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Article
+        model = About
         fields = [
             'id',
             'heading',
@@ -14,7 +14,7 @@ class AboutSerializer(serializers.ModelSerializer):
 
 class TeamMemberSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Article
+        model = TeamMember
         fields = [
             'id',
             'first_name',
@@ -27,7 +27,7 @@ class TeamMemberSerializer(serializers.ModelSerializer):
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Article
+        model = Product
         fields = [
             'id',
             'title',
